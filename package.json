@@ -1,0 +1,39 @@
+{
+  "name": "vite-plugin-lib-inject-style",
+  "packageManager": "pnpm@6.32.3",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/vite-plugin-lib-inject-style.umd.cjs",
+  "module": "./dist/vite-plugin-lib-inject-style.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vite-plugin-lib-inject-style.js",
+      "require": "./dist/vite-plugin-lib-inject-style.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "types": "./types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huogui/vite-plugin-lib-inject-style"
+  },
+  "homepage": "https://huogui.github.io/vite-plugin-lib-inject-style",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@huogui/eslint-config": "^1.1.30",
+    "eslint": "^8.28.0",
+    "typescript": "^4.9.3"
+  }
+}
