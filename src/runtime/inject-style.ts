@@ -25,10 +25,7 @@ export const InjectStyle = (code: string, options: PluginOptions) =>
     container.insertAdjacentElement(pos, styleTag)
     return styleTag
   }
-
-  /** @type {HTMLStyleElement} */
   let styleTag
-
   if (singleTag) {
     let id = containers.indexOf(container)
 
@@ -36,10 +33,8 @@ export const InjectStyle = (code: string, options: PluginOptions) =>
       id = containers.push(container) - 1
       styleTags[id] = {}
     }
-
     if (styleTags[id] && styleTags[id][position])
       styleTag = styleTags[id][position]
-
     else
       styleTag = styleTags[id][position] = createStyleTag()
   }

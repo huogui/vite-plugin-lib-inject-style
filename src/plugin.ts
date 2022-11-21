@@ -21,11 +21,23 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
       viteConfig = resolvedConfig
     },
     transform(code, id) {
-      const ret = transform(code, id)
-      return {
-        code: ret.s.toString(),
-        map: ret.s.generateMap(),
+      if (styleRegex.test(id)) {
+        styles.push(code)
+        return {
+          code: '',
+        }
       }
+      if (
+        // @ts-expect-error-err
+        id.includes(viteConfig.build.lib.entry)
+      ) {
+        const s = new MagicString(code)
+        code = s.append(replaceContent).toString()
+        return {
+          code,
+        }
+      }
+      return null
     },
     async writeBundle(_, bundle) {
       for (const file of Object.entries(bundle)) {
@@ -49,20 +61,5 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
         }
       }
     },
-  }
-}
-
-export function transform(code: string, id: string) {
-  const s = new MagicString(code)
-  if (styleRegex.test(id)) {
-    styles.push(code)
-    s.remove(0, code.length - 1)
-  }
-  if (
-    id.includes((viteConfig.build.lib as any).entry)
-  )
-    s.append(replaceContent)
-  return {
-    s,
   }
 }
