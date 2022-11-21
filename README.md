@@ -7,7 +7,7 @@ Register the vite-plugin-lib-inject-style
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
-import VitePluginLibInjectStyle from '../src/index'
+import VitePluginLibInjectStyle from 'vite-plugin-lib-inject-style'
 
 export default defineConfig({
   build: {

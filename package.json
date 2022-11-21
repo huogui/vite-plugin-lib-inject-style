@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib-inject-style",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.2",
   "type": "module",
   "main": "./dist/vite-plugin-lib-inject-style.umd.cjs",
   "module": "./dist/vite-plugin-lib-inject-style.js",
