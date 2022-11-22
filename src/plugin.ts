@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import type { Plugin, ResolvedConfig } from 'vite'
 import MagicString from 'magic-string'
 import type { PluginOptions } from '../types/index'
-import { InjectStyle } from './runtime/inject-style'
+import { Injector } from './runtime/inject-style'
 
 const styleRegex = /\.(css)$/
 
@@ -52,7 +52,7 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
           })
           const s = new MagicString(sourceCode)
           if (sourceCode.includes(replaceContent))
-            sourceCode = s.replace(replaceContent, InjectStyle(styles.join('\n'), options)).toString()
+            sourceCode = s.replace(replaceContent, buildOutput(styles, options)).toString()
 
           await fs.writeFile(filePath, sourceCode)
         }
@@ -62,4 +62,12 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
       }
     },
   }
+}
+
+export function buildOutput(styles: string[], options: PluginOptions) {
+  const out: string[] = []
+  styles.forEach((value) => {
+    out.push(Injector(value, options))
+  })
+  return `${out}`
 }

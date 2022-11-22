@@ -12,7 +12,4 @@ export default defineConfig({
       fileName: 'playground',
     },
   },
-  plugins: [VitePluginLibInjectStyle({
-    container: 'body',
-  })],
 })
