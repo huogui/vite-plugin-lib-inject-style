@@ -1,11 +1,12 @@
 import { promises as fs } from 'fs'
 import { resolve } from 'path'
 import type { Plugin, ResolvedConfig } from 'vite'
+import { normalizePath } from 'vite'
 import MagicString from 'magic-string'
 import type { PluginOptions } from '../types/index'
 import { Injector } from './runtime/inject-style'
 
-const styleRegex = /\.(css)$/
+const styleRegex = /\.(css|scss|less)$/
 
 const styles: string[] = []
 
@@ -20,16 +21,17 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
     configResolved(resolvedConfig: ResolvedConfig) {
       viteConfig = resolvedConfig
     },
-    transform(code, id) {
+    async transform(code, id) {
       if (styleRegex.test(id)) {
-        styles.push(code)
+        const ret = code.replace(/\n/g, '').replace(/\s\s+/g, ' ')
+        styles.push(ret)
         return {
           code: '',
         }
       }
       if (
         // @ts-expect-error-err
-        id.includes(viteConfig.build.lib.entry)
+        normalizePath(id) === normalizePath(viteConfig.build.lib.entry)
       ) {
         const s = new MagicString(code)
         code = s.append(replaceContent).toString()
@@ -53,7 +55,6 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
           const s = new MagicString(sourceCode)
           if (sourceCode.includes(replaceContent))
             sourceCode = s.replace(replaceContent, buildOutput(styles, options)).toString()
-
           await fs.writeFile(filePath, sourceCode)
         }
         catch (e) {

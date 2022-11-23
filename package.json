@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib-inject-style",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.2",
+  "version": "0.0.2-alpha.5",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/huogui/vite-plugin-lib-inject-style"
   },
-  "homepage": "https://huogui.github.io/vite-plugin-lib-inject-style",
+  "homepage": "https://github.com/huogui/vite-plugin-lib-inject-style#readme",
   "files": [
     "dist"
   ],
