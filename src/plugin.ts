@@ -37,6 +37,7 @@ export function libInjectStyle(options: PluginOptions = {}): Plugin {
         code = s.append(replaceContent).toString()
         return {
           code,
+          map: s.generateMap(),
         }
       }
       return null
