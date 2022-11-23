@@ -19,12 +19,4 @@ export interface PluginOptions {
    * - ex.: `{"id":"global"}`
    */
   attributes?: Record<string, string>
-  /**
-   * Makes injector treeshakeable,
-   * as it is only called when either classes are referenced directly,
-   * or `inject` function is called from the default export.
-   *
-   * Incompatible with `namedExports` option.
-   */
-  treeshakeable?: boolean
 }
