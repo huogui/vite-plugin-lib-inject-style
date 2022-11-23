@@ -26,7 +26,14 @@
     "build": "rimraf dist && unbuild",
     "release": "standard-version"
   },
-  "keywords": [],
+  "keywords": [
+    "vite",
+    "vite plugin",
+    "library mode",
+    "inject css",
+    "inject style",
+    "styleInjected"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
