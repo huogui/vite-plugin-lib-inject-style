@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib-inject-style",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.2-alpha.5",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -48,6 +48,6 @@
     "magic-string": "^0.26.7"
   },
   "engines": {
-    "node": ">=16.14.0"
+    "node": ">=16.0.0"
   }
 }
