@@ -1,4 +1,4 @@
-# vite-plugin-lib-inject-style [![npm](https://img.shields.io/npm/v/@vitejs/plugin-vue.svg)](https://npmjs.com/package/vite-plugin-lib-inject-style)
+# vite-plugin-lib-inject-style [![npm](https://img.shields.io/npm/v/vite-plugin-lib-inject-style.svg)](https://npmjs.com/package/vite-plugin-lib-inject-style)
 
 > The node version must be greater than 16.0.0!does not support ssr!
 
