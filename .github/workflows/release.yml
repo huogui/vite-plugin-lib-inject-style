@@ -31,7 +31,7 @@ jobs:
         run: |
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.HUOGUI_NPM_TOKEN}}
       - name: Read version
         id: version
         uses: ashley-taylor/read-json-property-action@v1.0
@@ -41,7 +41,7 @@ jobs:
       - name: Release
         uses: actions/create-release@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HUOGUI_TOKEN }}
         with:
           tag_name: v${{steps.version.outputs.value}}
           release_name: v${{steps.version.outputs.value}}
