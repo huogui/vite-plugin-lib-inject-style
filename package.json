@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib-inject-style",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.2-alpha.3",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -23,7 +23,8 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "rimraf dist && unbuild "
+    "build": "rimraf dist && unbuild",
+    "release": "standard-version"
   },
   "keywords": [],
   "author": "",
@@ -34,14 +35,19 @@
     "fast-glob": "^3.2.12",
     "jiti": "^1.16.0",
     "rimraf": "^3.0.2",
+    "standard-version": "^9.5.0",
     "typescript": "^4.9.3",
     "unbuild": "^1.0.1",
     "vite": "^3.2.3",
     "vitest": "^0.25.2"
   },
+  "peerDependencies": {
+    "vite": "^3.2.3"
+  },
   "dependencies": {
-    "@node-minify/clean-css": "^7.0.0",
-    "@node-minify/core": "^7.0.0",
     "magic-string": "^0.26.7"
+  },
+  "engines": {
+    "node": ">=16.14.0"
   }
 }
